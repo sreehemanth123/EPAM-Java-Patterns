@@ -28,3 +28,4 @@ public class LongestWordFinder {
         System.out.println(findLongestWord(null)); // Expected: null
     }
 }
+
