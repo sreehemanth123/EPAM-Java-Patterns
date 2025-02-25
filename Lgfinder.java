@@ -4,8 +4,12 @@ public class LongestWordFinder {
             return null;
         }
 
-        String[] words = line.trim().split("\\s+");  
-        String longestWord = "";
+        String[] words = line.trim().split("\\s+");
+        if (words.length == 0) {
+            return null;
+        }
+
+        String longestWord = words[0];
 
         for (String word : words) {
             if (word.length() > longestWord.length()) {
@@ -13,7 +17,7 @@ public class LongestWordFinder {
             }
         }
 
-        return longestWord.isEmpty() ? null : longestWord;
+        return longestWord;
     }
 
     public static void main(String[] args) {
