@@ -4,8 +4,8 @@ public class LongestWordFinder {
             return null;
         }
 
-        String[] words = line.split(" ");
-        String longestWord = words[0];
+        String[] words = line.trim().split("\\s+");  
+        String longestWord = "";
 
         for (String word : words) {
             if (word.length() > longestWord.length()) {
@@ -13,11 +13,14 @@ public class LongestWordFinder {
             }
         }
 
-        return longestWord;
+        return longestWord.isEmpty() ? null : longestWord;
     }
 
     public static void main(String[] args) {
-        String line = "abcd abcdefg abcdef";
-        System.out.println("Longest word: " + findLongestWord(line));
+        System.out.println(findLongestWord("abcd abcdefg abcdef")); // Expected: abcdefg
+        System.out.println(findLongestWord("qwerty1234 xyz abc")); // Expected: qwerty1234
+        System.out.println(findLongestWord("    ")); // Expected: null
+        System.out.println(findLongestWord("singleword")); // Expected: singleword
+        System.out.println(findLongestWord(null)); // Expected: null
     }
 }
